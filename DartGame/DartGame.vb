@@ -38,9 +38,10 @@ Public Class DartGame
         ReviewButton.Enabled = True
         ClearButton.Enabled = True
         ExitButton.Enabled = True
+        ModeTextBox.Text = "Mode: Review"
     End Sub
 
-    Private Function DartCount(Value As String) As Integer
+    Private Function SeperateNumberFromLabel(Value As String) As Integer
         Dim dartIndicator As String()
         dartIndicator = Split(Value, ": ")
 
@@ -57,17 +58,23 @@ Public Class DartGame
     End Sub
 
     Private Sub StartRoundButton_Click(sender As Object, e As EventArgs) Handles StartRoundButton.Click
+        Dim round As Integer
         DartsLeftTextBox.Text = "Darts Left: 3"
         ThrowDartButton.Enabled = True
         StartRoundButton.Enabled = False
         ReviewButton.Enabled = False
         ClearButton.Enabled = False
         ExitButton.Enabled = False
+
+        round = SeperateNumberFromLabel(RoundTextBox.Text) + 1
+        RoundTextBox.Text = "Round: " + CStr(round)
+
+        ModeTextBox.Text = "Mode: Play"
     End Sub
 
     Private Sub ThrowDartButton_Click(sender As Object, e As EventArgs) Handles ThrowDartButton.Click
         Dim dartsLeft As Integer
-        dartsLeft = Dartcount(DartsLeftTextBox.Text)
+        dartsLeft = SeperateNumberFromLabel(DartsLeftTextBox.Text)
 
         If dartsLeft > 1 Then
             ThrowDart()

@@ -29,6 +29,8 @@ Partial Class DartGame
         Me.ThrowDartButton = New System.Windows.Forms.Button()
         Me.DartsLeftTextBox = New System.Windows.Forms.TextBox()
         Me.ClearButton = New System.Windows.Forms.Button()
+        Me.ModeTextBox = New System.Windows.Forms.TextBox()
+        Me.RoundTextBox = New System.Windows.Forms.TextBox()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,9 +56,9 @@ Partial Class DartGame
         '
         'ReviewButton
         '
-        Me.ReviewButton.Location = New System.Drawing.Point(388, 363)
+        Me.ReviewButton.Location = New System.Drawing.Point(392, 299)
         Me.ReviewButton.Name = "ReviewButton"
-        Me.ReviewButton.Size = New System.Drawing.Size(182, 75)
+        Me.ReviewButton.Size = New System.Drawing.Size(80, 58)
         Me.ReviewButton.TabIndex = 3
         Me.ReviewButton.Text = "Review Games"
         Me.ReviewButton.UseVisualStyleBackColor = True
@@ -64,7 +66,7 @@ Partial Class DartGame
         'ExitButton
         '
         Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ExitButton.Location = New System.Drawing.Point(606, 363)
+        Me.ExitButton.Location = New System.Drawing.Point(388, 363)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(182, 75)
         Me.ExitButton.TabIndex = 5
@@ -84,21 +86,41 @@ Partial Class DartGame
         'DartsLeftTextBox
         '
         Me.DartsLeftTextBox.Enabled = False
-        Me.DartsLeftTextBox.Location = New System.Drawing.Point(388, 12)
+        Me.DartsLeftTextBox.Location = New System.Drawing.Point(388, 68)
         Me.DartsLeftTextBox.Name = "DartsLeftTextBox"
         Me.DartsLeftTextBox.ReadOnly = True
-        Me.DartsLeftTextBox.Size = New System.Drawing.Size(84, 22)
-        Me.DartsLeftTextBox.TabIndex = 5
+        Me.DartsLeftTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.DartsLeftTextBox.TabIndex = 8
         Me.DartsLeftTextBox.Text = "Darts Left: 3"
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(388, 316)
+        Me.ClearButton.Location = New System.Drawing.Point(490, 299)
         Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(84, 41)
+        Me.ClearButton.Size = New System.Drawing.Size(80, 58)
         Me.ClearButton.TabIndex = 4
         Me.ClearButton.Text = "Clear Data"
         Me.ClearButton.UseVisualStyleBackColor = True
+        '
+        'ModeTextBox
+        '
+        Me.ModeTextBox.Enabled = False
+        Me.ModeTextBox.Location = New System.Drawing.Point(388, 12)
+        Me.ModeTextBox.Name = "ModeTextBox"
+        Me.ModeTextBox.ReadOnly = True
+        Me.ModeTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.ModeTextBox.TabIndex = 6
+        Me.ModeTextBox.Text = "Mode: Review"
+        '
+        'RoundTextBox
+        '
+        Me.RoundTextBox.Enabled = False
+        Me.RoundTextBox.Location = New System.Drawing.Point(388, 40)
+        Me.RoundTextBox.Name = "RoundTextBox"
+        Me.RoundTextBox.ReadOnly = True
+        Me.RoundTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.RoundTextBox.TabIndex = 7
+        Me.RoundTextBox.Text = "Round: 0"
         '
         'DartGame
         '
@@ -107,6 +129,8 @@ Partial Class DartGame
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.RoundTextBox)
+        Me.Controls.Add(Me.ModeTextBox)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.DartsLeftTextBox)
         Me.Controls.Add(Me.ThrowDartButton)
@@ -129,4 +153,6 @@ Partial Class DartGame
     Friend WithEvents ThrowDartButton As Button
     Friend WithEvents DartsLeftTextBox As TextBox
     Friend WithEvents ClearButton As Button
+    Friend WithEvents ModeTextBox As TextBox
+    Friend WithEvents RoundTextBox As TextBox
 End Class
