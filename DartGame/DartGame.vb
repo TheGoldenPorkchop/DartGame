@@ -8,7 +8,6 @@ Option Explicit On
 
 Public Class DartGame
 
-
     Sub DrawDart(x As Integer, y As Integer)
         Dim g As Graphics = DrawingPictureBox.CreateGraphics
         Dim pen As New Pen(Color.BlueViolet)
@@ -22,6 +21,12 @@ Public Class DartGame
         g.Dispose()
     End Sub
 
+    Sub ClearDrawingBox()
+        Dim g As Graphics = DrawingPictureBox.CreateGraphics
+        Dim pen As New Pen(Color.BlueViolet)
+
+    End Sub
+
     Function GetRandomNumber(max As Integer) As Integer
         Randomize()
         Return CInt(System.Math.Floor(CDbl(Rnd() * max))) + 1
@@ -29,6 +34,23 @@ Public Class DartGame
 
     Sub ThrowDart()
         DrawDart(GetRandomNumber(DrawingPictureBox.Width), GetRandomNumber(DrawingPictureBox.Height))
+    End Sub
+
+    Sub LogToFile(round%, dart1X%, dart1Y%, dart2X%, dart2Y%, dart3X%, dart3Y%)
+
+        FileOpen(1, $"Dart Data-{ DateTime.Now.ToString("yyMMddhh")}.log", OpenMode.Append)
+
+        Write(1, DateTime.Now.ToString("yy:MM:dd:hh:mm:ss:fff"))
+        Write(1, round)
+        Write(1, dart1X)
+        Write(1, dart1Y)
+        Write(1, dart2X)
+        Write(1, dart2Y)
+        Write(1, dart3X)
+        Write(1, dart3Y)
+        WriteLine(1)
+
+        FileClose(1)
     End Sub
 
     Sub RoundEnd()
@@ -39,6 +61,7 @@ Public Class DartGame
         ClearButton.Enabled = True
         ExitButton.Enabled = True
         ModeTextBox.Text = "Mode: Review"
+        StartRoundButton.Focus()
     End Sub
 
     Private Function SeperateNumberFromLabel(Value As String) As Integer
@@ -59,6 +82,8 @@ Public Class DartGame
 
     Private Sub StartRoundButton_Click(sender As Object, e As EventArgs) Handles StartRoundButton.Click
         Dim round As Integer
+        Me.Refresh()
+
         DartsLeftTextBox.Text = "Darts Left: 3"
         ThrowDartButton.Enabled = True
         StartRoundButton.Enabled = False

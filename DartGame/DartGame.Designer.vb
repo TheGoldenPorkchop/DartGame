@@ -47,6 +47,9 @@ Partial Class DartGame
         '
         'StartRoundButton
         '
+        Me.StartRoundButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StartRoundButton.Location = New System.Drawing.Point(12, 363)
         Me.StartRoundButton.Name = "StartRoundButton"
         Me.StartRoundButton.Size = New System.Drawing.Size(182, 75)
@@ -56,6 +59,9 @@ Partial Class DartGame
         '
         'ReviewButton
         '
+        Me.ReviewButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReviewButton.Location = New System.Drawing.Point(392, 299)
         Me.ReviewButton.Name = "ReviewButton"
         Me.ReviewButton.Size = New System.Drawing.Size(80, 58)
@@ -65,6 +71,9 @@ Partial Class DartGame
         '
         'ExitButton
         '
+        Me.ExitButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ExitButton.Location = New System.Drawing.Point(388, 363)
         Me.ExitButton.Name = "ExitButton"
@@ -75,6 +84,9 @@ Partial Class DartGame
         '
         'ThrowDartButton
         '
+        Me.ThrowDartButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ThrowDartButton.Enabled = False
         Me.ThrowDartButton.Location = New System.Drawing.Point(200, 363)
         Me.ThrowDartButton.Name = "ThrowDartButton"
@@ -85,16 +97,22 @@ Partial Class DartGame
         '
         'DartsLeftTextBox
         '
+        Me.DartsLeftTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DartsLeftTextBox.Enabled = False
         Me.DartsLeftTextBox.Location = New System.Drawing.Point(388, 68)
         Me.DartsLeftTextBox.Name = "DartsLeftTextBox"
         Me.DartsLeftTextBox.ReadOnly = True
         Me.DartsLeftTextBox.Size = New System.Drawing.Size(108, 22)
         Me.DartsLeftTextBox.TabIndex = 8
-        Me.DartsLeftTextBox.Text = "Darts Left: 3"
+        Me.DartsLeftTextBox.Text = "Darts Left: 0"
         '
         'ClearButton
         '
+        Me.ClearButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ClearButton.Location = New System.Drawing.Point(490, 299)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(80, 58)
@@ -104,6 +122,9 @@ Partial Class DartGame
         '
         'ModeTextBox
         '
+        Me.ModeTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ModeTextBox.Enabled = False
         Me.ModeTextBox.Location = New System.Drawing.Point(388, 12)
         Me.ModeTextBox.Name = "ModeTextBox"
@@ -114,6 +135,9 @@ Partial Class DartGame
         '
         'RoundTextBox
         '
+        Me.RoundTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RoundTextBox.Enabled = False
         Me.RoundTextBox.Location = New System.Drawing.Point(388, 40)
         Me.RoundTextBox.Name = "RoundTextBox"
