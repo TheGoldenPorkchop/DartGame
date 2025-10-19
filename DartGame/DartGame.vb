@@ -31,6 +31,18 @@ Public Class DartGame
         DrawDart(GetRandomNumber(DrawingPictureBox.Width), GetRandomNumber(DrawingPictureBox.Height))
     End Sub
 
+    Sub RoundEnd()
+        MsgBox("Game Is over")
+    End Sub
+
+    Private Function DartCount(Value As String) As Integer
+        Dim dartIndicator As String()
+        dartIndicator = Split(Value, ": ")
+
+        Dim Number As Integer = CInt(dartIndicator(1))
+        Return Number
+    End Function
+
     'Event Handlers--------------------------------------------------------------------------
     Private Sub DartGame_Load(sender As Object, e As EventArgs) Handles Me.Load
         DrawingPictureBox.BackColor = Color.BlanchedAlmond
@@ -40,6 +52,21 @@ Public Class DartGame
     End Sub
 
     Private Sub StartRoundButton_Click(sender As Object, e As EventArgs) Handles StartRoundButton.Click
-        ThrowDart()
+        ThrowDartButton.Enabled = True
     End Sub
+
+    Private Sub ThrowDartButton_Click(sender As Object, e As EventArgs) Handles ThrowDartButton.Click
+        Dim dartsLeft As Integer
+        dartsLeft = Dartcount(DartsLeftTextBox.Text)
+
+        If dartsLeft > 0 Then
+            ThrowDart()
+            dartsLeft = dartsLeft - 1
+            DartsLeftTextBox.Text = "Darts Left: " + CStr(dartsLeft)
+        Else
+            RoundEnd()
+        End If
+
+    End Sub
+
 End Class
