@@ -28,6 +28,7 @@ Partial Class DartGame
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.ThrowDartButton = New System.Windows.Forms.Button()
         Me.DartsLeftTextBox = New System.Windows.Forms.TextBox()
+        Me.ClearButton = New System.Windows.Forms.Button()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,16 +57,17 @@ Partial Class DartGame
         Me.ReviewButton.Location = New System.Drawing.Point(388, 363)
         Me.ReviewButton.Name = "ReviewButton"
         Me.ReviewButton.Size = New System.Drawing.Size(182, 75)
-        Me.ReviewButton.TabIndex = 2
+        Me.ReviewButton.TabIndex = 3
         Me.ReviewButton.Text = "Review Games"
         Me.ReviewButton.UseVisualStyleBackColor = True
         '
         'ExitButton
         '
+        Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ExitButton.Location = New System.Drawing.Point(606, 363)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(182, 75)
-        Me.ExitButton.TabIndex = 3
+        Me.ExitButton.TabIndex = 5
         Me.ExitButton.Text = "E&xit Game"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
@@ -75,12 +77,13 @@ Partial Class DartGame
         Me.ThrowDartButton.Location = New System.Drawing.Point(200, 363)
         Me.ThrowDartButton.Name = "ThrowDartButton"
         Me.ThrowDartButton.Size = New System.Drawing.Size(182, 75)
-        Me.ThrowDartButton.TabIndex = 4
-        Me.ThrowDartButton.Text = "Throw Dart"
+        Me.ThrowDartButton.TabIndex = 2
+        Me.ThrowDartButton.Text = "Throw& Dart"
         Me.ThrowDartButton.UseVisualStyleBackColor = True
         '
         'DartsLeftTextBox
         '
+        Me.DartsLeftTextBox.Enabled = False
         Me.DartsLeftTextBox.Location = New System.Drawing.Point(388, 12)
         Me.DartsLeftTextBox.Name = "DartsLeftTextBox"
         Me.DartsLeftTextBox.ReadOnly = True
@@ -88,11 +91,23 @@ Partial Class DartGame
         Me.DartsLeftTextBox.TabIndex = 5
         Me.DartsLeftTextBox.Text = "Darts Left: 3"
         '
+        'ClearButton
+        '
+        Me.ClearButton.Location = New System.Drawing.Point(388, 316)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(84, 41)
+        Me.ClearButton.TabIndex = 4
+        Me.ClearButton.Text = "Clear Data"
+        Me.ClearButton.UseVisualStyleBackColor = True
+        '
         'DartGame
         '
+        Me.AcceptButton = Me.ThrowDartButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.DartsLeftTextBox)
         Me.Controls.Add(Me.ThrowDartButton)
         Me.Controls.Add(Me.ExitButton)
@@ -100,7 +115,7 @@ Partial Class DartGame
         Me.Controls.Add(Me.StartRoundButton)
         Me.Controls.Add(Me.DrawingPictureBox)
         Me.Name = "DartGame"
-        Me.Text = "Form1"
+        Me.Text = "DartGame"
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -113,4 +128,5 @@ Partial Class DartGame
     Friend WithEvents ExitButton As Button
     Friend WithEvents ThrowDartButton As Button
     Friend WithEvents DartsLeftTextBox As TextBox
+    Friend WithEvents ClearButton As Button
 End Class

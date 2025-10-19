@@ -33,6 +33,11 @@ Public Class DartGame
 
     Sub RoundEnd()
         MsgBox("Game Is over")
+        ThrowDartButton.Enabled = False
+        StartRoundButton.Enabled = True
+        ReviewButton.Enabled = True
+        ClearButton.Enabled = True
+        ExitButton.Enabled = True
     End Sub
 
     Private Function DartCount(Value As String) As Integer
@@ -52,18 +57,26 @@ Public Class DartGame
     End Sub
 
     Private Sub StartRoundButton_Click(sender As Object, e As EventArgs) Handles StartRoundButton.Click
+        DartsLeftTextBox.Text = "Darts Left: 3"
         ThrowDartButton.Enabled = True
+        StartRoundButton.Enabled = False
+        ReviewButton.Enabled = False
+        ClearButton.Enabled = False
+        ExitButton.Enabled = False
     End Sub
 
     Private Sub ThrowDartButton_Click(sender As Object, e As EventArgs) Handles ThrowDartButton.Click
         Dim dartsLeft As Integer
         dartsLeft = Dartcount(DartsLeftTextBox.Text)
 
-        If dartsLeft > 0 Then
+        If dartsLeft > 1 Then
             ThrowDart()
             dartsLeft = dartsLeft - 1
             DartsLeftTextBox.Text = "Darts Left: " + CStr(dartsLeft)
         Else
+            ThrowDart()
+            dartsLeft = dartsLeft - 1
+            DartsLeftTextBox.Text = "Darts Left: " + CStr(dartsLeft)
             RoundEnd()
         End If
 
