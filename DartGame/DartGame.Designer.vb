@@ -31,7 +31,11 @@ Partial Class DartGame
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.ModeTextBox = New System.Windows.Forms.TextBox()
         Me.RoundTextBox = New System.Windows.Forms.TextBox()
+        Me.ReviewGroupBox = New System.Windows.Forms.GroupBox()
+        Me.RoundComboBox = New System.Windows.Forms.ComboBox()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ReviewGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'DrawingPictureBox
@@ -146,6 +150,34 @@ Partial Class DartGame
         Me.RoundTextBox.TabIndex = 7
         Me.RoundTextBox.Text = "Round: 0"
         '
+        'ReviewGroupBox
+        '
+        Me.ReviewGroupBox.Controls.Add(Me.ListBox1)
+        Me.ReviewGroupBox.Controls.Add(Me.RoundComboBox)
+        Me.ReviewGroupBox.Location = New System.Drawing.Point(576, 12)
+        Me.ReviewGroupBox.Name = "ReviewGroupBox"
+        Me.ReviewGroupBox.Size = New System.Drawing.Size(212, 426)
+        Me.ReviewGroupBox.TabIndex = 9
+        Me.ReviewGroupBox.TabStop = False
+        Me.ReviewGroupBox.Text = "ReviewGroupBox"
+        '
+        'RoundComboBox
+        '
+        Me.RoundComboBox.FormattingEnabled = True
+        Me.RoundComboBox.Location = New System.Drawing.Point(6, 21)
+        Me.RoundComboBox.Name = "RoundComboBox"
+        Me.RoundComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.RoundComboBox.TabIndex = 0
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 16
+        Me.ListBox1.Location = New System.Drawing.Point(6, 288)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(200, 132)
+        Me.ListBox1.TabIndex = 1
+        '
         'DartGame
         '
         Me.AcceptButton = Me.ThrowDartButton
@@ -153,6 +185,7 @@ Partial Class DartGame
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ReviewGroupBox)
         Me.Controls.Add(Me.RoundTextBox)
         Me.Controls.Add(Me.ModeTextBox)
         Me.Controls.Add(Me.ClearButton)
@@ -165,6 +198,7 @@ Partial Class DartGame
         Me.Name = "DartGame"
         Me.Text = "DartGame"
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ReviewGroupBox.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -179,4 +213,7 @@ Partial Class DartGame
     Friend WithEvents ClearButton As Button
     Friend WithEvents ModeTextBox As TextBox
     Friend WithEvents RoundTextBox As TextBox
+    Friend WithEvents ReviewGroupBox As GroupBox
+    Friend WithEvents RoundComboBox As ComboBox
+    Friend WithEvents ListBox1 As ListBox
 End Class
