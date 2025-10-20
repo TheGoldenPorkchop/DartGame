@@ -22,18 +22,21 @@ Partial Class DartGame
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DrawingPictureBox = New System.Windows.Forms.PictureBox()
         Me.StartRoundButton = New System.Windows.Forms.Button()
         Me.ReviewButton = New System.Windows.Forms.Button()
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.ThrowDartButton = New System.Windows.Forms.Button()
         Me.DartsLeftTextBox = New System.Windows.Forms.TextBox()
-        Me.ClearButton = New System.Windows.Forms.Button()
         Me.ModeTextBox = New System.Windows.Forms.TextBox()
         Me.RoundTextBox = New System.Windows.Forms.TextBox()
         Me.ReviewGroupBox = New System.Windows.Forms.GroupBox()
         Me.RoundComboBox = New System.Windows.Forms.ComboBox()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Dart1TextBox = New System.Windows.Forms.TextBox()
+        Me.Dart2TextBox = New System.Windows.Forms.TextBox()
+        Me.Dart3TextBox = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.DrawingPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ReviewGroupBox.SuspendLayout()
         Me.SuspendLayout()
@@ -48,6 +51,7 @@ Partial Class DartGame
         Me.DrawingPictureBox.Size = New System.Drawing.Size(370, 345)
         Me.DrawingPictureBox.TabIndex = 0
         Me.DrawingPictureBox.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.DrawingPictureBox, "The dart board")
         '
         'StartRoundButton
         '
@@ -59,6 +63,7 @@ Partial Class DartGame
         Me.StartRoundButton.Size = New System.Drawing.Size(182, 75)
         Me.StartRoundButton.TabIndex = 1
         Me.StartRoundButton.Text = "Start Round"
+        Me.ToolTip1.SetToolTip(Me.StartRoundButton, "Starts the game and enters ""Play"" Mode")
         Me.StartRoundButton.UseVisualStyleBackColor = True
         '
         'ReviewButton
@@ -66,11 +71,12 @@ Partial Class DartGame
         Me.ReviewButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReviewButton.Location = New System.Drawing.Point(392, 299)
+        Me.ReviewButton.Location = New System.Drawing.Point(388, 282)
         Me.ReviewButton.Name = "ReviewButton"
-        Me.ReviewButton.Size = New System.Drawing.Size(80, 58)
-        Me.ReviewButton.TabIndex = 3
+        Me.ReviewButton.Size = New System.Drawing.Size(182, 75)
+        Me.ReviewButton.TabIndex = 6
         Me.ReviewButton.Text = "Review Games"
+        Me.ToolTip1.SetToolTip(Me.ReviewButton, "Allows you to review the selected round")
         Me.ReviewButton.UseVisualStyleBackColor = True
         '
         'ExitButton
@@ -82,8 +88,9 @@ Partial Class DartGame
         Me.ExitButton.Location = New System.Drawing.Point(388, 363)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(182, 75)
-        Me.ExitButton.TabIndex = 5
+        Me.ExitButton.TabIndex = 7
         Me.ExitButton.Text = "E&xit Game"
+        Me.ToolTip1.SetToolTip(Me.ExitButton, "Closes the game")
         Me.ExitButton.UseVisualStyleBackColor = True
         '
         'ThrowDartButton
@@ -97,6 +104,7 @@ Partial Class DartGame
         Me.ThrowDartButton.Size = New System.Drawing.Size(182, 75)
         Me.ThrowDartButton.TabIndex = 2
         Me.ThrowDartButton.Text = "Throw& Dart"
+        Me.ToolTip1.SetToolTip(Me.ThrowDartButton, "Throws a dart on the picture box")
         Me.ThrowDartButton.UseVisualStyleBackColor = True
         '
         'DartsLeftTextBox
@@ -108,21 +116,10 @@ Partial Class DartGame
         Me.DartsLeftTextBox.Location = New System.Drawing.Point(388, 68)
         Me.DartsLeftTextBox.Name = "DartsLeftTextBox"
         Me.DartsLeftTextBox.ReadOnly = True
-        Me.DartsLeftTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.DartsLeftTextBox.Size = New System.Drawing.Size(182, 22)
         Me.DartsLeftTextBox.TabIndex = 8
         Me.DartsLeftTextBox.Text = "Darts Left: 0"
-        '
-        'ClearButton
-        '
-        Me.ClearButton.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ClearButton.Location = New System.Drawing.Point(490, 299)
-        Me.ClearButton.Name = "ClearButton"
-        Me.ClearButton.Size = New System.Drawing.Size(80, 58)
-        Me.ClearButton.TabIndex = 4
-        Me.ClearButton.Text = "Clear Data"
-        Me.ClearButton.UseVisualStyleBackColor = True
+        Me.ToolTip1.SetToolTip(Me.DartsLeftTextBox, "The amount of darts you have left")
         '
         'ModeTextBox
         '
@@ -133,9 +130,10 @@ Partial Class DartGame
         Me.ModeTextBox.Location = New System.Drawing.Point(388, 12)
         Me.ModeTextBox.Name = "ModeTextBox"
         Me.ModeTextBox.ReadOnly = True
-        Me.ModeTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.ModeTextBox.Size = New System.Drawing.Size(182, 22)
         Me.ModeTextBox.TabIndex = 6
         Me.ModeTextBox.Text = "Mode: Review"
+        Me.ToolTip1.SetToolTip(Me.ModeTextBox, "The current mode")
         '
         'RoundTextBox
         '
@@ -146,37 +144,73 @@ Partial Class DartGame
         Me.RoundTextBox.Location = New System.Drawing.Point(388, 40)
         Me.RoundTextBox.Name = "RoundTextBox"
         Me.RoundTextBox.ReadOnly = True
-        Me.RoundTextBox.Size = New System.Drawing.Size(108, 22)
+        Me.RoundTextBox.Size = New System.Drawing.Size(182, 22)
         Me.RoundTextBox.TabIndex = 7
         Me.RoundTextBox.Text = "Round: 0"
+        Me.ToolTip1.SetToolTip(Me.RoundTextBox, "Round number")
         '
         'ReviewGroupBox
         '
-        Me.ReviewGroupBox.Controls.Add(Me.ListBox1)
         Me.ReviewGroupBox.Controls.Add(Me.RoundComboBox)
-        Me.ReviewGroupBox.Location = New System.Drawing.Point(576, 12)
+        Me.ReviewGroupBox.Location = New System.Drawing.Point(388, 226)
         Me.ReviewGroupBox.Name = "ReviewGroupBox"
-        Me.ReviewGroupBox.Size = New System.Drawing.Size(212, 426)
-        Me.ReviewGroupBox.TabIndex = 9
+        Me.ReviewGroupBox.Size = New System.Drawing.Size(182, 50)
+        Me.ReviewGroupBox.TabIndex = 4
         Me.ReviewGroupBox.TabStop = False
-        Me.ReviewGroupBox.Text = "ReviewGroupBox"
+        Me.ReviewGroupBox.Text = "Select A Round"
+        Me.ToolTip1.SetToolTip(Me.ReviewGroupBox, "Selects a round to review")
         '
         'RoundComboBox
         '
+        Me.RoundComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.RoundComboBox.FormattingEnabled = True
         Me.RoundComboBox.Location = New System.Drawing.Point(6, 21)
         Me.RoundComboBox.Name = "RoundComboBox"
-        Me.RoundComboBox.Size = New System.Drawing.Size(200, 24)
-        Me.RoundComboBox.TabIndex = 0
+        Me.RoundComboBox.Size = New System.Drawing.Size(172, 24)
+        Me.RoundComboBox.TabIndex = 5
+        Me.ToolTip1.SetToolTip(Me.RoundComboBox, "Selects a Round to Review")
         '
-        'ListBox1
+        'Dart1TextBox
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 16
-        Me.ListBox1.Location = New System.Drawing.Point(6, 288)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(200, 132)
-        Me.ListBox1.TabIndex = 1
+        Me.Dart1TextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Dart1TextBox.Enabled = False
+        Me.Dart1TextBox.Location = New System.Drawing.Point(388, 96)
+        Me.Dart1TextBox.Name = "Dart1TextBox"
+        Me.Dart1TextBox.ReadOnly = True
+        Me.Dart1TextBox.Size = New System.Drawing.Size(182, 22)
+        Me.Dart1TextBox.TabIndex = 10
+        Me.Dart1TextBox.Text = "Dart1's Position: "
+        Me.ToolTip1.SetToolTip(Me.Dart1TextBox, "The position of dart 1")
+        '
+        'Dart2TextBox
+        '
+        Me.Dart2TextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Dart2TextBox.Enabled = False
+        Me.Dart2TextBox.Location = New System.Drawing.Point(388, 124)
+        Me.Dart2TextBox.Name = "Dart2TextBox"
+        Me.Dart2TextBox.ReadOnly = True
+        Me.Dart2TextBox.Size = New System.Drawing.Size(182, 22)
+        Me.Dart2TextBox.TabIndex = 11
+        Me.Dart2TextBox.Text = "Dart2's Position:"
+        Me.ToolTip1.SetToolTip(Me.Dart2TextBox, "The position of dart 2")
+        '
+        'Dart3TextBox
+        '
+        Me.Dart3TextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Dart3TextBox.Enabled = False
+        Me.Dart3TextBox.Location = New System.Drawing.Point(388, 152)
+        Me.Dart3TextBox.Name = "Dart3TextBox"
+        Me.Dart3TextBox.ReadOnly = True
+        Me.Dart3TextBox.Size = New System.Drawing.Size(182, 22)
+        Me.Dart3TextBox.TabIndex = 12
+        Me.Dart3TextBox.Text = "Dart3's Position:"
+        Me.ToolTip1.SetToolTip(Me.Dart3TextBox, "The position of dart 3")
         '
         'DartGame
         '
@@ -185,10 +219,12 @@ Partial Class DartGame
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Dart3TextBox)
+        Me.Controls.Add(Me.Dart2TextBox)
+        Me.Controls.Add(Me.Dart1TextBox)
         Me.Controls.Add(Me.ReviewGroupBox)
         Me.Controls.Add(Me.RoundTextBox)
         Me.Controls.Add(Me.ModeTextBox)
-        Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.DartsLeftTextBox)
         Me.Controls.Add(Me.ThrowDartButton)
         Me.Controls.Add(Me.ExitButton)
@@ -210,10 +246,12 @@ Partial Class DartGame
     Friend WithEvents ExitButton As Button
     Friend WithEvents ThrowDartButton As Button
     Friend WithEvents DartsLeftTextBox As TextBox
-    Friend WithEvents ClearButton As Button
     Friend WithEvents ModeTextBox As TextBox
     Friend WithEvents RoundTextBox As TextBox
     Friend WithEvents ReviewGroupBox As GroupBox
     Friend WithEvents RoundComboBox As ComboBox
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents Dart1TextBox As TextBox
+    Friend WithEvents Dart2TextBox As TextBox
+    Friend WithEvents Dart3TextBox As TextBox
+    Friend WithEvents ToolTip1 As ToolTip
 End Class
